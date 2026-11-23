@@ -1,0 +1,26 @@
+name: CompileCare Site CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - "feature/**"
+      - "bugfix/**"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - name: Restore
+        run: dotnet restore src/CompileCare.site/CompileCare.site.csproj
+      - name: Build
+        run: dotnet build src/CompileCare.site/CompileCare.site.csproj --configuration Release --no-restore

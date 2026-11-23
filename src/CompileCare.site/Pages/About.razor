@@ -1,0 +1,103 @@
+﻿@page "/about"
+@using MudBlazor
+
+<link rel="stylesheet" href="css/about.css" />
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-10 mb-12 px-4">
+
+    <!-- HERO SECTION -->
+    <MudContainer MaxWidth="MaxWidth.Medium" Class="text-center mb-12 fade-in">
+        <MudText Typo="Typo.h3" Align="Align.Center" Class="fw-bold text-primary mb-2">
+            About CompileCare
+        </MudText>
+        <MudText Typo="Typo.subtitle1" Align="Align.Center" Class="text-muted fade-in-delay"
+                 Style="max-width: 650px; margin:auto;">
+            CompileCare is an in-development hospital-management platform built with a .NET backend.
+        </MudText>
+    </MudContainer>
+
+    <!-- IMAGE + TEXT SECTION -->
+    <MudGrid Class="align-center mb-12">
+        <MudItem xs="12" md="6" Class="d-flex justify-center align-center mb-6 mb-md-0 slide-left">
+            <MudPaper Elevation="6" Class="p-3 rounded-xl glass">
+                <img src="images/hospital-dashboard.svg"
+                     alt="Hospital dashboard"
+                     class="rounded-lg"
+                     style="width:100%; max-width:500px;" />
+            </MudPaper>
+        </MudItem>
+
+        <MudItem xs="12" md="6" Class="fade-in">
+            <MudPaper Elevation="0" Class="p-4">
+                <MudText Typo="Typo.body1" Class="mb-4 text-justify" Style="line-height:1.8;">
+                    <b>CompileCare</b> is being developed as a modular hospital and clinic management platform.
+                    Its roadmap includes OPD, IPD, billing, appointments, pharmacy, diagnostics,
+                    and reporting. These modules will be delivered incrementally.
+                </MudText>
+                <MudText Typo="Typo.body1" Class="text-justify" Style="line-height:1.8;">
+                    The project prioritizes modular architecture, tenant isolation, and secure foundations.
+                    Product capabilities and availability will be described as they are implemented.
+                </MudText>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+
+    <!-- FEATURE GRID -->
+    <MudContainer MaxWidth="MaxWidth.Large" Class="mt-14">
+        <MudText Typo="Typo.h5" Class="fw-bold mb-6 text-center fade-in">
+            Why Choose CompileCare?
+        </MudText>
+        <MudGrid Spacing="3" Class="fade-in-delay">
+            <MudItem xs="12" md="4">
+                <MudPaper Elevation="6" Class="p-6 rounded-xl feature-card glass text-center">
+                    <MudIcon Icon="@Icons.Material.Filled.Speed" Color="Color.Primary" Size="Size.Large" />
+                    <MudText Typo="Typo.h6" Class="mt-3 fw-semibold">Fast & Efficient</MudText>
+                    <MudText Typo="Typo.body2" Class="text-muted">
+                        Built on a .NET backend; performance is validated as features are delivered.
+                    </MudText>
+                </MudPaper>
+            </MudItem>
+
+            <MudItem xs="12" md="4">
+                <MudPaper Elevation="6" Class="p-6 rounded-xl feature-card glass text-center">
+                    <MudIcon Icon="@Icons.Material.Filled.Security" Color="Color.Primary" Size="Size.Large" />
+                    <MudText Typo="Typo.h6" Class="mt-3 fw-semibold">Secure by Design</MudText>
+                    <MudText Typo="Typo.body2" Class="text-muted">
+                        Tenant-aware authentication and authorization foundations are being implemented.
+                    </MudText>
+                </MudPaper>
+            </MudItem>
+
+            <MudItem xs="12" md="4">
+                <MudPaper Elevation="6" Class="p-6 rounded-xl feature-card glass text-center">
+                    <MudIcon Icon="@Icons.Material.Filled.MonitorHeart" Color="Color.Primary" Size="Size.Large" />
+                    <MudText Typo="Typo.h6" Class="mt-3 fw-semibold">Healthcare-Focused</MudText>
+                    <MudText Typo="Typo.body2" Class="text-muted">
+                        Designed specially for hospitals, clinics & medical workflows.
+                    </MudText>
+                </MudPaper>
+            </MudItem>
+        </MudGrid>
+    </MudContainer>
+
+    <!-- MISSION SECTION -->
+    <MudContainer MaxWidth="MaxWidth.Medium" Class="mt-14 text-center fade-in-delay">
+        <MudPaper Elevation="8" Class="p-10 rounded-2xl glass mission-card"
+                  Style="border: 1px solid #e2e8f0;">
+            <div class="mission-icon mb-3">
+                <MudIcon Icon="@Icons.Material.Filled.Visibility" Color="Color.Primary" Size="Size.Large" />
+            </div>
+            <MudText Typo="Typo.h5" Color="Color.Primary" Class="fw-semibold mb-3">
+                Our Mission
+            </MudText>
+            <MudText Typo="Typo.body1" Class="text-muted"
+                     Style="line-height: 1.8; max-width: 80%; margin: auto;">
+                To build a reliable digital healthcare ecosystem that empowers clinicians,
+                reduces manual workload, and ensures hospitals run smoothly — enabling staff
+                to focus on the most important thing:
+                <b>delivering exceptional patient care.</b>
+            </MudText>
+        </MudPaper>
+    </MudContainer>
+</MudContainer>
+
