@@ -1,0 +1,19 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>CompileCare.site</PageTitle>
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<NavMenu />
+
+<MudMainContent Class="p-4">
+    @Body
+</MudMainContent>
+
+<MudFooter>
+    <div class="bg-dark text-white text-center py-3 mt-auto">
+        © @DateTime.Now.Year CompileCare. All Rights Reserved.
+    </div>
+</MudFooter>

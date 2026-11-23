@@ -1,0 +1,98 @@
+﻿@using MudBlazor
+
+<MudLayout>
+    <!-- Attractive Glass Appbar -->
+    <MudAppBar Class="compilecare-appbar" Elevation="0" Dense="true">
+
+        <!-- Mobile Menu Button -->
+        <div class="d-md-none">
+            <MudIconButton Icon="@Icons.Material.Filled.Menu"
+                           Color="Color.Inherit"
+                           Edge="Edge.Start"
+                           OnClick="ToggleDrawer" />
+        </div>
+
+        <!-- Branding: Logo + Title -->
+        <MudText Typo="Typo.h5" Class="ms-2 fw-bold d-flex align-items-center compilecare-title">
+            <MudImage Src="images/CompileCareLogo.png"
+                      Alt="CompileCare Logo"
+                      Height="34"
+                      Class="me-2 logo-hover" />            
+        </MudText>
+        <!-- Contact Info (visible on md and above) -->
+        <div class="d-none d-md-flex align-items-center ms-4 contact-info">
+
+            <div class="d-flex align-items-center me-4">
+                <MudIcon Icon="@Icons.Material.Filled.Email" Class="me-1 text-white" />
+                <MudText Class="text-white small">support@compilecare.com</MudText>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <MudIcon Icon="@Icons.Material.Filled.Phone" Class="me-1 text-white" />
+                <MudText Class="text-white small">+91 96044 66334</MudText>
+            </div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="ms-auto d-none d-md-flex align-items-center">
+            <MudNavLink Href="/" Match="NavLinkMatch.All" Class="nav-item-link">
+                Home
+            </MudNavLink>            
+            <MudNavLink Href="/features" Class="nav-item-link">
+                Features
+            </MudNavLink>
+            <MudNavLink Href="/demo" Class="nav-item-link">
+                Demo
+            </MudNavLink>
+            <MudNavLink Href="/about" Class="nav-item-link">
+                About
+            </MudNavLink>
+            <MudNavLink Href="/contact" Class="nav-item-link">
+                Contact
+            </MudNavLink>
+        </div>
+
+    </MudAppBar>
+
+    <!-- Mobile Drawer -->
+    <MudDrawer @bind-Open="_drawerOpen"
+               Anchor="Anchor.Left"
+               Elevation="4"
+               Variant="DrawerVariant.Temporary"
+               Class="compilecare-drawer">
+
+        <MudDrawerHeader>
+            <MudText Typo="Typo.h6" Class="fw-bold text-primary">
+                <MudImage Src="images/CompileCareLogo.png"
+                          Alt="CompileCare Logo"
+                          Height="34"
+                          Class="me-2 logo-hover" />
+            </MudText>            
+        </MudDrawerHeader>
+
+        <MudNavMenu Dense="true">
+            <MudNavLink Href="/" Icon="@Icons.Material.Filled.Home">
+                Home
+            </MudNavLink>
+            <MudNavLink Href="/about" Icon="@Icons.Material.Filled.Info">
+                About
+            </MudNavLink>
+            <MudNavLink Href="/features" Icon="@Icons.Material.Filled.Star">
+                Features
+            </MudNavLink>
+            <MudNavLink Href="/demo" Icon="@Icons.Material.Filled.PlayCircle">
+                Demo
+            </MudNavLink>
+            <MudNavLink Href="/contact" Icon="@Icons.Material.Filled.ContactMail">
+                Contact
+            </MudNavLink>
+        </MudNavMenu>
+
+    </MudDrawer>
+
+</MudLayout>
+
+@code {
+    private bool _drawerOpen = false;
+    private void ToggleDrawer() => _drawerOpen = !_drawerOpen;
+}

@@ -1,0 +1,37 @@
+﻿.feature-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 28px;
+    min-height: 260px; /* increased height */
+    gap: 16px;
+    border-radius: 18px;
+    text-align: center; /* center alignment looks clean */
+    overflow-wrap: break-word; /* prevents text overflow */
+    transition: all 0.3s ease;
+}
+
+    .feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.10);
+    }
+
+    .feature-card .mud-icon-root {
+        margin: auto; /* centers icon */
+    }
+
+.mission-card {
+    transition: 0.3s ease;
+    min-height: 320px;
+}
+
+    .mission-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.10);
+    }
+
+.mission-icon {
+    display: flex;
+    justify-content: center;
+}
+

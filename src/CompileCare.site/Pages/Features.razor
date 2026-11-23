@@ -1,0 +1,51 @@
+﻿@page "/features"
+@using MudBlazor
+<link rel="stylesheet" href="css/feature.css" />
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="py-8 text-center">
+
+    <!-- Page Title -->
+    <MudText Typo="Typo.h3" Color="Color.Primary" Class="fw-bold animate__animated animate__fadeInDown">
+        ✨ Key Features of <span class="highlight">CompileCare</span>
+    </MudText>
+
+    <MudText Typo="Typo.body1" Class="mb-8 text-muted animate__animated animate__fadeInUp">
+The modules below describe intended scope. CompileCare is under active development; these capabilities are not presented as released functionality.
+    </MudText>
+
+    <!-- Feature Cards Grid -->
+    <MudGrid GutterSize="3" Justify="Justify.Center">
+        @foreach (var feature in FeaturesList)
+        {
+            <MudItem xs="12" sm="6" md="4">
+                <MudPaper Elevation="6" Class="feature-card hover-shadow-lg transition-all p-5 d-flex flex-column justify-content-between align-items-center text-center rounded-4">
+                    <MudIcon Icon="@feature.Icon" Size="Size.Large" Color="Color.Primary" />
+                    <MudText Typo="Typo.h6" Class="mt-2 fw-semibold">@feature.Title</MudText>
+                    <MudText Typo="Typo.body2" Class="mt-2 text-muted">@feature.Description</MudText>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary" Class="mt-3">Learn More →</MudButton>
+                </MudPaper>
+            </MudItem>
+        }
+    </MudGrid>
+</MudContainer>
+<MudContainer Class="py-10 text-center bg-light rounded-4 mt-8">
+    <MudText Typo="Typo.h5" Class="fw-bold mb-6">Designed for Hospital Workflows</MudText>
+    <MudText Typo="Typo.body1" Color="Color.Secondary">CompileCare is under active development. Module availability, deployment options, service levels, and customer references will be confirmed as capabilities are delivered.</MudText>
+</MudContainer>
+
+@code {
+    private record Feature(string Icon, string Title, string Description);
+
+    private List<Feature> FeaturesList = new()
+    {
+       new Feature(Icons.Material.Filled.LocalHospital, "OPD & IPD Workflows (Planned)", "Efficiently manage patient admissions, discharges, and in-patient services from a single dashboard."),
+       new Feature(Icons.Material.Filled.Receipt, "Billing & Payments (Planned)", "Simplify billing and manage online and offline payments with automated invoice generation."),
+       new Feature(Icons.Material.Filled.EventAvailable, "Appointment Scheduling (Planned)", "Enable patients to book appointments easily while managing doctor availability and time slots."),
+       new Feature(Icons.Material.Filled.Assignment, "Electronic Medical Records (EMR)", "Planned clinical-record workflows will be designed with privacy and access controls."),
+       new Feature(Icons.Material.Filled.BarChart, "Reports & Analytics (Planned)", "Get insightful analytics on patients, doctors, revenue, and performance trends instantly."),
+       new Feature(Icons.Material.Filled.Security, "Secure, Role-based Access", "Role-based authorization is part of the security foundation under development."),
+       new Feature(Icons.Material.Filled.Cloud, "Deployment Options (Planned)", "Deployment options are evaluated against infrastructure and operational requirements."),
+       new Feature(Icons.Material.Filled.SupportAgent, "Support Planning", "Support arrangements are defined during onboarding."),
+       new Feature(Icons.Material.Filled.People, "Multi-Branch Management", "Easily manage multiple hospitals or clinics from one centralized platform.")
+    };
+}

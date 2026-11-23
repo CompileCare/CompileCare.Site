@@ -1,0 +1,102 @@
+﻿@page "/contact"
+@using System.ComponentModel.DataAnnotations
+@using MudBlazor
+<MudContainer MaxWidth="MaxWidth.Medium" Class="text-center mb-8">
+    <MudIcon Icon="@Icons.Material.Filled.ContactMail" Color="Color.Primary" Size="Size.Large" />
+    <MudText Typo="Typo.h4" Class="fw-bold mt-2">Contact Us</MudText>
+    <MudText Typo="Typo.subtitle1" Color="Color.Secondary" Align="Align.Center" Class="mt-2">
+        We'd love to hear from you! Reach out for any queries or to schedule a demo.
+    </MudText>
+</MudContainer>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mb-10">
+    <MudGrid Spacing="3">
+        <!-- Contact Info Card -->
+        <MudItem xs="12" md="4">
+            <MudPaper Elevation="3" Class="p-4 rounded-4 shadow-sm">
+                <MudStack Spacing="2">
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
+                        <MudIcon Icon="@Icons.Material.Filled.Email" Color="Color.Primary" />
+                        <MudText Typo="Typo.body1">support@compilecare.com</MudText>
+                    </MudStack>
+
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
+                        <MudIcon Icon="@Icons.Material.Filled.Phone" Color="Color.Primary" />
+                        <MudText Typo="Typo.body1">+91 96044 66334</MudText>
+                    </MudStack>
+
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
+                        <MudIcon Icon="@Icons.Material.Filled.LocationOn" Color="Color.Primary" />
+                        <MudText Typo="Typo.body1">Pune, Maharashtra, India</MudText>
+                    </MudStack>
+                </MudStack>
+            </MudPaper>
+        </MudItem>
+
+        <!-- Contact Form Card -->
+        <MudItem xs="12" md="8">
+            <MudPaper Elevation="3" Class="p-6 rounded-4 shadow-sm">
+                <EditForm Model="@contactModel" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+                    <MudTextField @bind-Value="contactModel.Name" Label="Your Name" Variant="Variant.Outlined" FullWidth="true" Required="true" />
+                    <MudTextField @bind-Value="contactModel.Email" Type="InputType.Email" T="string" Label="Email" Variant="Variant.Outlined" FullWidth="true" Required="true" Class="mt-3" />
+                    <MudTextField @bind-Value="contactModel.Message"  T="string" Label="Message" Variant="Variant.Outlined" FullWidth="true" Lines="4" Class="mt-3" />
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" ButtonType="ButtonType.Submit" Class="mt-4 px-6">
+                        Open email draft
+                    </MudButton>
+                    <MudText Typo="Typo.caption" Color="Color.Secondary" Class="mt-2">Your email client will open. This website does not store or send the form data.</MudText>
+                </EditForm>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+<MudContainer MaxWidth="MaxWidth.Medium" Class="text-center mt-10">
+    <MudText Typo="Typo.h5" Class="fw-bold mb-4">📍 Our Commitment</MudText>
+    <MudText Typo="Typo.body1" Color="Color.Secondary">
+        We respond to all inquiries within 24 hours and ensure your data is handled securely.
+    </MudText>
+</MudContainer>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-10">
+    <MudExpansionPanels>
+        <MudExpansionPanel Text="How quickly will you respond?">
+            <MudText Typo="Typo.body2">Our team typically replies within 24 hours on business days.</MudText>
+        </MudExpansionPanel>
+        <MudExpansionPanel Text="Can I schedule a demo from here?">
+            <MudText Typo="Typo.body2">Yes, simply mention it in your message and we’ll arrange a demo session.</MudText>
+        </MudExpansionPanel>
+        <MudExpansionPanel Text="Is my information secure?">
+            <MudText Typo="Typo.body2">The contact form opens your email client. This website does not store form submissions.</MudText>
+        </MudExpansionPanel>
+    </MudExpansionPanels>
+</MudContainer>
+
+
+@code {
+    private ContactModel contactModel = new();
+
+    [Inject] NavigationManager Navigation { get; set; } = default!;
+
+    private void HandleValidSubmit()
+    {
+        var subject = Uri.EscapeDataString("CompileCare website inquiry");
+        var body = Uri.EscapeDataString(
+            $"Name: {contactModel.Name}\nEmail: {contactModel.Email}\nMessage: {contactModel.Message}");
+
+        Navigation.NavigateTo($"mailto:support@compilecare.com?subject={subject}&body={body}");
+    }
+
+    public class ContactModel
+    {
+        [Required(ErrorMessage = "Name is required")]
+        public string? Name { get; set; }
+
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Enter a valid email address")]
+        public string? Email { get; set; }
+
+        public string? Message { get; set; }
+    }
+}
