@@ -62,24 +62,24 @@
 }
 
 
-/* CompileCare brand navigation */
-.compilecare-appbar {
+/* HeapCare brand navigation */
+.heapcare-appbar {
     background: linear-gradient(120deg, #0b2f4f, #145da0) !important;
     color: #ffffff !important;
 }
 
-.compilecare-appbar ::deep .nav-item-link {
+.heapcare-appbar ::deep .nav-item-link {
     color: #ffffff !important;
     border-radius: 0.5rem;
     padding: 0.5rem 0.75rem;
     transition: background-color 150ms ease-in-out;
 }
 
-.compilecare-appbar ::deep .nav-item-link:hover,
-.compilecare-appbar ::deep .nav-item-link.active {
+.heapcare-appbar ::deep .nav-item-link:hover,
+.heapcare-appbar ::deep .nav-item-link.active {
     background-color: rgba(255, 255, 255, 0.16);
 }
 
-.compilecare-drawer {
+.heapcare-drawer {
     background-color: #f8fafc;
 }
