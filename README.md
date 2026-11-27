@@ -1,6 +1,8 @@
-# CompileCare.Site
+# HeapCare Site
 
-Public-facing CompileCare product and engineering information website.
+> **Brand migration in progress:** HeapCare is the product brand. Repository names, source namespaces, package IDs, database identifiers, OIDC realm/client IDs, and deployment identifiers remain unchanged until their coordinated migration is implemented and validated.
+
+Public-facing HeapCare product and engineering information website.
 
 This is separate from the authenticated hospital workspace in CompileCare.Web. It describes the hospital platform vision, implemented foundations, planned modules, architecture and repository-derived technology stack. Capabilities are labelled by delivery status; planned features are not represented as released functionality.
 
