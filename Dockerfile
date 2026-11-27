@@ -1,11 +1,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-COPY src/CompileCare.site/CompileCare.site.csproj src/CompileCare.site/
-RUN dotnet restore src/CompileCare.site/CompileCare.site.csproj
+COPY src/HeapCare.Site/HeapCare.Site.csproj src/HeapCare.Site/
+RUN dotnet restore src/HeapCare.Site/HeapCare.Site.csproj
 
 COPY . .
-RUN dotnet publish src/CompileCare.site/CompileCare.site.csproj \
+RUN dotnet publish src/HeapCare.Site/HeapCare.Site.csproj \
     --configuration Release \
     --no-restore \
     --output /app/publish \
@@ -20,4 +20,4 @@ EXPOSE 8080
 COPY --from=build /app/publish .
 USER $APP_UID
 
-ENTRYPOINT ["dotnet", "CompileCare.site.dll"]
+ENTRYPOINT ["dotnet", "HeapCare.Site.dll"]
