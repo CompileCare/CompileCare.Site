@@ -28,6 +28,18 @@ Restore and run `src/CompileCare.site/CompileCare.site.csproj` with `dotnet rest
 
 The public site is informational; it does not authenticate hospital users or expose patient data. The authenticated workspace is deployed and configured separately.
 
+## Container deployment
+
+A multi-stage Dockerfile publishes the .NET 8 application into the ASP.NET Core runtime image, runs as the non-root `app` user and listens on port 8080. The `/health` endpoint provides a basic process-level HTTP health probe.
+
+Build and run locally:
+
+- `docker build -t compilecare-site .`
+- `docker run --rm -p 8080:8080 compilecare-site`
+- Open `http://localhost:8080`
+
+The container is provider-neutral. Configure the chosen hosting provider, HTTPS termination, custom domain, WebSocket support for Blazor Server, health check path `/health`, secrets/configuration and deployment policy in that provider. No provider-specific deployment is assumed by this repository.
+
 ## Validation
 
-Build `src/CompileCare.site/CompileCare.site.csproj` in Release configuration. The GitHub Actions workflow restores and builds the website on pull requests.
+The GitHub Actions workflow restores and builds the .NET 8 website and builds the deployment container on pull requests.
