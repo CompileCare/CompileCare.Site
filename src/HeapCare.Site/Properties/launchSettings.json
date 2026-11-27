@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "CompileCare.site": {
+    "HeapCare.Site": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

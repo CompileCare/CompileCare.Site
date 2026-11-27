@@ -1,4 +1,4 @@
-name: CompileCare Site CI
+name: HeapCare Site CI
 
 on:
   pull_request:
@@ -21,13 +21,13 @@ jobs:
         with:
           dotnet-version: "8.0.x"
       - name: Restore
-        run: dotnet restore src/CompileCare.site/CompileCare.site.csproj
+        run: dotnet restore src/HeapCare.Site/HeapCare.Site.csproj
       - name: Build
-        run: dotnet build src/CompileCare.site/CompileCare.site.csproj --configuration Release --no-restore
+        run: dotnet build src/HeapCare.Site/HeapCare.Site.csproj --configuration Release --no-restore
       - name: Build deployment container
-        run: docker build --pull -t compilecare-site:ci .
+        run: docker build --pull -t heapcare-site:ci .
       - name: Start public-site container
-        run: docker run --detach --name compilecare-site-ci --publish 8080:8080 compilecare-site:ci
+        run: docker run --detach --name heapcare-site-ci --publish 8080:8080 heapcare-site:ci
       - name: Smoke-test health endpoint and public routes
         shell: bash
         run: |
@@ -42,14 +42,14 @@ jobs:
           done
           test "$healthy" = "1"
           for route in / /features /technology /about /contact; do
-            status=$(curl --silent --show-error --output /tmp/compilecare-site.html --write-out '%{http_code}' "http://127.0.0.1:8080$route")
+            status=$(curl --silent --show-error --output /tmp/heapcare-site.html --write-out '%{http_code}' "http://127.0.0.1:8080$route")
             test "$status" = "200"
-            grep --ignore-case --quiet "CompileCare" /tmp/compilecare-site.html
+            grep --ignore-case --quiet "HeapCare" /tmp/heapcare-site.html
             echo "PASS $route ($status)"
           done
       - name: Capture public-site container logs on failure
         if: failure()
-        run: docker logs compilecare-site-ci || true
+        run: docker logs heapcare-site-ci || true
       - name: Stop public-site container
         if: always()
-        run: docker rm --force compilecare-site-ci || true
+        run: docker rm --force heapcare-site-ci || true

@@ -1,10 +1,10 @@
 # HeapCare Site
 
-> **Brand migration in progress:** HeapCare is the product brand. Repository names, source namespaces, package IDs, database identifiers, OIDC realm/client IDs, and deployment identifiers remain unchanged until their coordinated migration is implemented and validated.
+> **HeapCare migration status:** The public Site project/solution paths, assembly name, namespaces, UI styles, metadata, logo and container build have been migrated in this branch. The GitHub repository slug and support email remain unchanged until their administrative/external identity transitions are configured.
 
 Public-facing HeapCare product and engineering information website.
 
-This is separate from the authenticated hospital workspace in CompileCare.Web. It describes the hospital platform vision, implemented foundations, planned modules, architecture and repository-derived technology stack. Capabilities are labelled by delivery status; planned features are not represented as released functionality.
+This is separate from the authenticated hospital workspace in HeapCare.Web. It describes the hospital platform vision, implemented foundations, planned modules, architecture and repository-derived technology stack. Capabilities are labelled by delivery status; planned features are not represented as released functionality.
 
 ## Technology
 
@@ -18,7 +18,7 @@ This is separate from the authenticated hospital workspace in CompileCare.Web. I
 
 - `/` — platform overview, product principles and architecture summary.
 - `/features` — complete hospital module catalogue with implementation/planned status labels.
-- `/technology` — technologies, frameworks, libraries, infrastructure, DevOps, observability and test tooling used across the CompileCare repositories.
+- `/technology` — technologies, frameworks, libraries, infrastructure, DevOps, observability and test tooling used across the HeapCare repositories.
 - `/about` — product vision and engineering principles.
 - `/contact` — product and technical inquiry information.
 
@@ -26,7 +26,7 @@ This is separate from the authenticated hospital workspace in CompileCare.Web. I
 
 Requires the .NET 8 SDK.
 
-Restore and run `src/CompileCare.site/CompileCare.site.csproj` with `dotnet restore` and `dotnet run --project src/CompileCare.site/CompileCare.site.csproj`.
+Restore and run `src/HeapCare.Site/HeapCare.Site.csproj` with `dotnet restore` and `dotnet run --project src/HeapCare.Site/HeapCare.Site.csproj`.
 
 The public site is informational; it does not authenticate hospital users or expose patient data. The authenticated workspace is deployed and configured separately.
 
@@ -36,8 +36,8 @@ A multi-stage Dockerfile publishes the .NET 8 application into the ASP.NET Core 
 
 Build and run locally:
 
-- `docker build -t compilecare-site .`
-- `docker run --rm -p 8080:8080 compilecare-site`
+- `docker build -t heapcare-site .`
+- `docker run --rm -p 8080:8080 heapcare-site`
 - Open `http://localhost:8080`
 
 The container is provider-neutral. Configure the chosen hosting provider, HTTPS termination, custom domain, WebSocket support for Blazor Server, health check path `/health`, secrets/configuration and deployment policy in that provider. No provider-specific deployment is assumed by this repository.
