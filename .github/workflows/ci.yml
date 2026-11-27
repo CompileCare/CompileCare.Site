@@ -26,3 +26,30 @@ jobs:
         run: dotnet build src/CompileCare.site/CompileCare.site.csproj --configuration Release --no-restore
       - name: Build deployment container
         run: docker build --pull -t compilecare-site:ci .
+      - name: Start public-site container
+        run: docker run --detach --name compilecare-site-ci --publish 8080:8080 compilecare-site:ci
+      - name: Smoke-test health endpoint and public routes
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          healthy=0
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent --show-error http://127.0.0.1:8080/health; then
+              healthy=1
+              break
+            fi
+            sleep 2
+          done
+          test "$healthy" = "1"
+          for route in / /features /technology /about /contact; do
+            status=$(curl --silent --show-error --output /tmp/compilecare-site.html --write-out '%{http_code}' "http://127.0.0.1:8080$route")
+            test "$status" = "200"
+            grep --ignore-case --quiet "CompileCare" /tmp/compilecare-site.html
+            echo "PASS $route ($status)"
+          done
+      - name: Capture public-site container logs on failure
+        if: failure()
+        run: docker logs compilecare-site-ci || true
+      - name: Stop public-site container
+        if: always()
+        run: docker rm --force compilecare-site-ci || true
