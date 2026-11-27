@@ -1,9 +1,9 @@
 @using MudBlazor
 <MudLayout>
     <MudAppBar Class="compilecare-appbar" Elevation="0">
-        <a class="brand" href="/" aria-label="CompileCare home">
-            <img src="images/CompileCareLogo.png" alt="CompileCare" />
-            <span>CompileCare</span>
+        <a class="brand" href="/" aria-label="HeapCare home">
+            <img src="images/CompileCareLogo.png" alt="HeapCare" />
+            <span>HeapCare</span>
         </a>
         <MudSpacer />
         <nav class="desktop-nav" aria-label="Main navigation">
@@ -18,12 +18,12 @@
         </div>
     </MudAppBar>
     <MudDrawer @bind-Open="_drawerOpen" Anchor="Anchor.Right" Elevation="4" Variant="DrawerVariant.Temporary" Class="compilecare-drawer">
-        <MudDrawerHeader><a class="brand drawer-brand" href="/"><img src="images/CompileCareLogo.png" alt="CompileCare" /><span>CompileCare</span></a></MudDrawerHeader>
+        <MudDrawerHeader><a class="brand drawer-brand" href="/"><img src="images/CompileCareLogo.png" alt="HeapCare" /><span>HeapCare</span></a></MudDrawerHeader>
         <MudNavMenu Dense="true">
             <MudNavLink Href="/" Icon="@Icons.Material.Filled.Home">Overview</MudNavLink>
             <MudNavLink Href="/features" Icon="@Icons.Material.Filled.LocalHospital">Platform capabilities</MudNavLink>
             <MudNavLink Href="/technology" Icon="@Icons.Material.Filled.Memory">Technology stack</MudNavLink>
-            <MudNavLink Href="/about" Icon="@Icons.Material.Filled.Info">About CompileCare</MudNavLink>
+            <MudNavLink Href="/about" Icon="@Icons.Material.Filled.Info">About HeapCare</MudNavLink>
             <MudNavLink Href="/contact" Icon="@Icons.Material.Filled.ContactMail">Contact</MudNavLink>
         </MudNavMenu>
     </MudDrawer>
