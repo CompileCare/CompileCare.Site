@@ -1,4 +1,4 @@
-namespace CompileCare.site.Data
+namespace HeapCare.Site.Data
 {
     public class WeatherForecast
     {
