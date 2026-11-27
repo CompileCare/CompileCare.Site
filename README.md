@@ -1,6 +1,6 @@
 # HeapCare Site
 
-> **Brand migration in progress:** HeapCare is the product brand. Repository names, source namespaces, package IDs, database identifiers, OIDC realm/client IDs, and deployment identifiers remain unchanged until their coordinated migration is implemented and validated.
+> **HeapCare migration status:** The public Site project/solution paths, assembly name, namespaces, UI styles, metadata, logo and container build have been migrated in this branch. The GitHub repository slug and support email remain unchanged until their administrative/external identity transitions are configured.
 
 Public-facing HeapCare product and engineering information website.
 
