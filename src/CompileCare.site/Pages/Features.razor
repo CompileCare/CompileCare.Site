@@ -1,51 +1,35 @@
-﻿@page "/features"
-@using MudBlazor
-<link rel="stylesheet" href="css/feature.css" />
-
-<MudContainer MaxWidth="MaxWidth.Large" Class="py-8 text-center">
-
-    <!-- Page Title -->
-    <MudText Typo="Typo.h3" Color="Color.Primary" Class="fw-bold animate__animated animate__fadeInDown">
-        ✨ Key Features of <span class="highlight">CompileCare</span>
-    </MudText>
-
-    <MudText Typo="Typo.body1" Class="mb-8 text-muted animate__animated animate__fadeInUp">
-The modules below describe intended scope. CompileCare is under active development; these capabilities are not presented as released functionality.
-    </MudText>
-
-    <!-- Feature Cards Grid -->
-    <MudGrid GutterSize="3" Justify="Justify.Center">
-        @foreach (var feature in FeaturesList)
-        {
-            <MudItem xs="12" sm="6" md="4">
-                <MudPaper Elevation="6" Class="feature-card hover-shadow-lg transition-all p-5 d-flex flex-column justify-content-between align-items-center text-center rounded-4">
-                    <MudIcon Icon="@feature.Icon" Size="Size.Large" Color="Color.Primary" />
-                    <MudText Typo="Typo.h6" Class="mt-2 fw-semibold">@feature.Title</MudText>
-                    <MudText Typo="Typo.body2" Class="mt-2 text-muted">@feature.Description</MudText>
-                    <MudButton Variant="Variant.Text" Color="Color.Primary" Class="mt-3">Learn More →</MudButton>
-                </MudPaper>
-            </MudItem>
-        }
-    </MudGrid>
-</MudContainer>
-<MudContainer Class="py-10 text-center bg-light rounded-4 mt-8">
-    <MudText Typo="Typo.h5" Class="fw-bold mb-6">Designed for Hospital Workflows</MudText>
-    <MudText Typo="Typo.body1" Color="Color.Secondary">CompileCare is under active development. Module availability, deployment options, service levels, and customer references will be confirmed as capabilities are delivered.</MudText>
-</MudContainer>
-
-@code {
-    private record Feature(string Icon, string Title, string Description);
-
-    private List<Feature> FeaturesList = new()
-    {
-       new Feature(Icons.Material.Filled.LocalHospital, "OPD & IPD Workflows (Planned)", "Efficiently manage patient admissions, discharges, and in-patient services from a single dashboard."),
-       new Feature(Icons.Material.Filled.Receipt, "Billing & Payments (Planned)", "Simplify billing and manage online and offline payments with automated invoice generation."),
-       new Feature(Icons.Material.Filled.EventAvailable, "Appointment Scheduling (Planned)", "Enable patients to book appointments easily while managing doctor availability and time slots."),
-       new Feature(Icons.Material.Filled.Assignment, "Electronic Medical Records (EMR)", "Planned clinical-record workflows will be designed with privacy and access controls."),
-       new Feature(Icons.Material.Filled.BarChart, "Reports & Analytics (Planned)", "Get insightful analytics on patients, doctors, revenue, and performance trends instantly."),
-       new Feature(Icons.Material.Filled.Security, "Secure, Role-based Access", "Role-based authorization is part of the security foundation under development."),
-       new Feature(Icons.Material.Filled.Cloud, "Deployment Options (Planned)", "Deployment options are evaluated against infrastructure and operational requirements."),
-       new Feature(Icons.Material.Filled.SupportAgent, "Support Planning", "Support arrangements are defined during onboarding."),
-       new Feature(Icons.Material.Filled.People, "Multi-Branch Management", "Easily manage multiple hospitals or clinics from one centralized platform.")
-    };
-}
+@page "/features"
+<PageTitle>Platform capabilities | CompileCare</PageTitle>
+<main class="page-shell">
+    <section class="page-hero">
+        <div class="container"><span class="section-kicker">PLATFORM CAPABILITIES</span><h1>One platform vision.<br/><span>Every hospital workflow.</span></h1><p>Explore the capabilities in the CompileCare product plan—from the outpatient foundation being implemented today to the broader hospital information system roadmap.</p><div class="status-legend"><span class="status-chip implemented">Implemented foundation</span><span class="status-chip building">In progress / acceptance ongoing</span><span class="status-chip planned">Planned / deferred</span></div></div>
+    </section>
+    <section class="section compact-section"><div class="container">
+        <div class="notice"><b>How to read this catalogue</b><p>“Implemented foundation” means the capability has a corresponding implementation in the repositories. It does not mean every workflow has completed hospital acceptance or is generally available as a production service. “Planned / deferred” describes product scope, not released functionality. No regulatory-compliance or production-readiness claim is implied.</p></div>
+        <div class="catalogue-grid">
+            <article class="catalogue-card" id="platform"><div class="catalogue-meta"><span class="status-chip implemented">Implemented foundation</span><span class="catalogue-index">01 / PLATFORM</span></div><h2>Platform, tenant & organization management</h2><p>The control plane and organization model that support hospital customers and their operating structures.</p><ul><li>Tenant registry and lifecycle: provisioning, activation, suspension and closure</li><li>Hospital, department, ward, room and bed hierarchy</li><li>Tenant memberships with persisted roles and permissions</li><li>Tenant-, hospital- and department-level organization scopes</li><li>Initial HospitalAdmin provisioning and membership administration</li><li>Current-user tenant-context discovery and permission-aware navigation</li><li>Audit events for sensitive and privileged requests</li><li>Configuration, feature flags, notifications and document services — planned platform capabilities</li></ul></article>
+            <article class="catalogue-card" id="patient"><div class="catalogue-meta"><span class="status-chip implemented">Implemented foundation</span><span class="catalogue-index">02 / PATIENT SERVICES</span></div><h2>Patient registration & identity</h2><p>A hospital-local identity model designed to reduce duplicate entry while keeping patient access appropriately scoped.</p><ul><li>Patient master and hospital registration</li><li>Demographic capture and hospital-scoped patient search</li><li>Hospital-configured medical record number (MRN / UHID) policy</li><li>Concurrency-safe, idempotent MRN assignment and lookup</li><li>Normalized multi-signal duplicate candidate detection and review</li><li>Hospital and department scope enforcement for patient access</li><li>Verified contact enrichment, patient/guardian relationships and governed identity correction or merge — planned and subject to privacy decisions</li></ul></article>
+            <article class="catalogue-card" id="frontdesk"><div class="catalogue-meta"><span class="status-chip implemented">Implemented foundation</span><span class="catalogue-index">03 / FRONT DESK</span></div><h2>Appointments, reception & queue</h2><p>Connect provider availability and scheduled visits with the operational arrival and waiting-room journey.</p><ul><li>Date-specific provider availability sessions</li><li>Appointment booking, cancellation and rescheduling</li><li>Patient arrival and appointment check-in</li><li>Walk-in registration</li><li>Department queue, sequential tokens and queue lifecycle transitions</li><li>Idempotent check-in and appointment/queue lineage</li><li>Waiting-room display, self-booking, recurring rosters and waitlists — planned</li><li>Clinical prioritization and service/tariff catalogue extensions — require validated workflows</li></ul></article>
+            <article class="catalogue-card" id="clinical"><div class="catalogue-meta"><span class="status-chip building">Implemented foundation · acceptance ongoing</span><span class="catalogue-index">04 / CLINICAL</span></div><h2>OPD encounters & clinical documentation</h2><p>A controlled encounter lifecycle connected to the queue, with safeguards around signed clinical documentation.</p><ul><li>OPD encounter creation from an in-progress queue entry</li><li>Clinical note fields for complaint, history, examination, assessment and plan</li><li>Clinician attribution and signing timestamp</li><li>Signed-note immutability and append-only amendments</li><li>Encounter closure and cancellation lifecycle</li><li>Tenant, hospital and department scoped clinical access with audit coverage</li><li>Diagnosis, approved vital observations, allergy/history, care plans, referrals, prescription orders and templates — planned, governed increments</li></ul></article>
+            <article class="catalogue-card" id="billing"><div class="catalogue-meta"><span class="status-chip implemented">Implemented foundation</span><span class="catalogue-index">05 / REVENUE</span></div><h2>OPD billing & collections</h2><p>A basic outpatient financial workflow connected to a visit and its service items.</p><ul><li>Billing service catalogue</li><li>OPD invoice issuance and line items</li><li>Cash/recorded payment workflows and payment history</li><li>Receipt retrieval and reprint</li><li>Daily collection reporting</li><li>Invoice balance and settlement state</li><li>Tax/statutory rules, packages, discounts, deposits, refunds, reversals, credit notes, gateway/UPI, reconciliation and accounting — planned</li><li>Insurance, TPA, preauthorization and claims — planned</li></ul></article>
+            <article class="catalogue-card"><div class="catalogue-meta"><span class="status-chip implemented">Implemented foundation</span><span class="catalogue-index">06 / WORKFORCE</span></div><h2>Staff & provider profiles</h2><p>Tenant-owned staff records with effective-dated assignment history.</p><ul><li>Staff profile creation, search and update</li><li>Hospital and department assignments with effective dates</li><li>Profile activation/deactivation and assignment end dates</li><li>Organization-scope checks and audit coverage</li><li>Provider designation as descriptive metadata only</li><li>Verified identity linking, credential/license verification, clinical privileging, rosters, shifts, attendance, leave, employee records and payroll integrations — planned</li></ul></article>
+            <article class="catalogue-card"><div class="catalogue-meta"><span class="status-chip implemented">Implemented foundation</span><span class="catalogue-index">07 / SECURITY</span></div><h2>Identity, access & audit</h2><p>Security controls are enforced by the API, not by hiding links in the user interface.</p><ul><li>OpenID Connect / JWT bearer validation of issuer, audience, signature and lifetime</li><li>Persisted tenant membership and server-derived permissions</li><li>Tenant, hospital and department organization-scope checks</li><li>Platform-operator control plane separated from hospital roles</li><li>Request audit with correlation and validated actor attribution</li><li>Non-disclosing cross-tenant and out-of-scope responses</li><li>Audit review UI, retention/deletion governance, key-rotation rehearsal and independent security review — outstanding operational work</li></ul></article>
+            <article class="catalogue-card"><div class="catalogue-meta"><span class="status-chip implemented">Implemented foundation</span><span class="catalogue-index">08 / OPERATIONS</span></div><h2>API, developer & operational platform</h2><p>Shared components and operational practices support consistent integrations and runtime visibility.</p><ul><li>Versioned REST API and development OpenAPI document</li><li>Reusable typed/named API client with tenant, token and correlation handlers</li><li>Bounded safe-method HTTP resilience and RFC 9457 Problem Details handling</li><li>Shared HybridCache package with optional Redis distributed cache</li><li>Structured logs, distributed traces, metrics, health/readiness checks</li><li>Docker Compose local stack and automated CI / integration verification</li><li>Production backup/PITR, isolated restore drills, trusted ingress and deployment acceptance — outstanding gates</li></ul></article>
+        </div>
+    </div></section>
+    <section class="section section-dark" id="future"><div class="container"><span class="section-kicker light">THE WIDER HOSPITAL ROADMAP</span><h2>Capabilities planned beyond the initial outpatient foundation.</h2><p class="section-lead">These modules are part of the long-term CompileCare vision. They are not represented as operational or released today. Each requires validated workflows, domain ownership, permissions, audit, integrations, tests and hospital governance before delivery.</p>
+        <div class="future-grid">
+            <article><span>09</span><h3>Inpatient (IPD) & nursing</h3><p>Admission, discharge and transfer (ADT); bed reservation and occupancy; ward and nursing workspaces; observations; care plans; handover; medication administration record; discharge summaries and follow-up.</p></article>
+            <article><span>10</span><h3>Pharmacy</h3><p>Formulary and medicine catalogue; prescription validation; dispensing and returns; batch and expiry tracking; stock movements; suppliers; purchasing and reconciliation.</p></article>
+            <article><span>11</span><h3>Laboratory (LIS)</h3><p>Test catalogue and panels; diagnostic orders; specimen collection and barcode labels; worklists; result entry and validation; critical-result escalation and reports.</p></article>
+            <article><span>12</span><h3>Radiology (RIS / PACS)</h3><p>Imaging orders and scheduling; modality worklists; report approval; DICOM integration; image storage/access references and retention.</p></article>
+            <article><span>13</span><h3>Inventory & procurement</h3><p>Stores; requisitions and purchase orders; vendors; receiving; batch/expiry; stock transfers and adjustments; assets and maintenance.</p></article>
+            <article><span>14</span><h3>Advanced revenue cycle</h3><p>OPD/IPD/procedure billing; statutory rules; packages; deposits; refunds and credit notes; insurance/TPA; preauthorization and claims; payment and accounting integrations.</p></article>
+            <article><span>15</span><h3>Patient & guardian engagement</h3><p>Patient portal and mobile experience; self-booking; approved records and instructions; reminders; communication preferences; consent-aware guardian access.</p></article>
+            <article><span>16</span><h3>Interoperability</h3><p>ABDM/ABHA subject to applicable approval; FHIR/HL7; DICOM; identity; payment; SMS/email/WhatsApp; insurance/TPA; accounting and external hospital systems.</p></article>
+            <article><span>17</span><h3>Analytics & intelligent assistance</h3><p>Permissioned OPD/IPD census, occupancy, wait-time, revenue and collection dashboards; pharmacy/lab reporting; exports; human-reviewed AI-assisted workflows. No autonomous diagnosis, triage or prescribing.</p></article>
+            <article><span>18</span><h3>Hospital administration services</h3><p>Housekeeping, dietary, ambulance and configurable facilities/administrative workflows—subject to validated hospital requirements and module boundaries.</p></article>
+        </div>
+    </div></section>
+    <section class="section"><div class="container closing-inline"><div><span class="section-kicker">TRANSPARENCY BY DESIGN</span><h2>See the tools behind the platform.</h2><p>Explore the frameworks, databases, libraries, infrastructure, DevOps and testing tools used across the CompileCare repositories.</p></div><a class="btn btn-primary" href="/technology">Technology stack →</a></div></section>
+</main>
