@@ -1,2 +1,33 @@
 # CompileCare.Site
-CompileCare Web Site
+
+Public-facing CompileCare product and engineering information website.
+
+This is separate from the authenticated hospital workspace in CompileCare.Web. It describes the hospital platform vision, implemented foundations, planned modules, architecture and repository-derived technology stack. Capabilities are labelled by delivery status; planned features are not represented as released functionality.
+
+## Technology
+
+- .NET 8 / ASP.NET Core
+- Blazor Server and Razor components
+- MudBlazor 8.14.0
+- Bootstrap 5.3.3 (public host stylesheet)
+- Custom responsive CSS design system
+
+## Public information architecture
+
+- `/` — platform overview, product principles and architecture summary.
+- `/features` — complete hospital module catalogue with implementation/planned status labels.
+- `/technology` — technologies, frameworks, libraries, infrastructure, DevOps, observability and test tooling used across the CompileCare repositories.
+- `/about` — product vision and engineering principles.
+- `/contact` — product and technical inquiry information.
+
+## Run locally
+
+Requires the .NET 8 SDK.
+
+Restore and run `src/CompileCare.site/CompileCare.site.csproj` with `dotnet restore` and `dotnet run --project src/CompileCare.site/CompileCare.site.csproj`.
+
+The public site is informational; it does not authenticate hospital users or expose patient data. The authenticated workspace is deployed and configured separately.
+
+## Validation
+
+Build `src/CompileCare.site/CompileCare.site.csproj` in Release configuration. The GitHub Actions workflow restores and builds the website on pull requests.

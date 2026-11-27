@@ -1,95 +1,71 @@
-﻿@page "/"
-
-<section class="hero d-flex align-items-center text-center text-white" style="background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%); min-height: 70vh;">
-    <div class="container">
-        <h1 class="display-4 fw-bold animate__animated animate__fadeInDown">
-            Smarter Care, <span class="highlight text-light">Simplified Operations.</span>
-        </h1>
-        <p class="lead mt-3 animate__animated animate__fadeInUp">
-            A hospital-management platform being built around practical, connected workflows.
-        </p>
-        <p class="text-light mt-2">Designed to support hospital teams as their workflows evolve.</p>
-
-        <div class="mt-5 mb-5 animate__animated animate__zoomIn">
-            <a class="btn btn-light btn-lg shadow-lg me-3" href="/demo">
-                🚀 Book Your Free Demo!
-            </a>
-            <a class="btn btn-outline-light btn-lg shadow-sm" href="/features">
-                ⭐ See Key Features
-            </a>
-        </div>
-
-        <div class="software-mockup mt-5 animate__animated animate__fadeInUp">
-            <img src="images/software-dashboard-mockup.png" alt="Illustrative CompileCare dashboard mockup"
-                 class="img-fluid rounded-4 shadow-lg" style="max-height: 200px; border: 3px solid rgba(255,255,255,0.2);">
-        </div>
-
-        <div class="mt-4">
-            <span class="badge bg-success me-2">Modular foundation</span>
-            <span class="badge bg-info me-2">Tenant-aware architecture</span>
-            <span class="badge bg-warning">Healthcare workflows</span>
-        </div>
-    </div>
-</section>
-
-<section class="features-section py-5 text-center">
-    <div class="container">
-        <h2 class="fw-bold mb-3">Why Choose <span class="highlight">CompileCare?</span></h2>
-        <p class="text-muted mb-5">Streamline your hospital operations with our powerful, intuitive, and secure platform.</p>
-
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="feature-card p-4 shadow-sm rounded-4 h-100">
-                    <div class="icon-circle bg-primary text-white mb-3">
-                        <svg width="38" height="38" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="3" y="3" width="7" height="7" rx="1"></rect>
-                            <rect x="14" y="3" width="7" height="7" rx="1"></rect>
-                            <rect x="3" y="14" width="7" height="7" rx="1"></rect>
-                            <rect x="14" y="14" width="7" height="7" rx="1"></rect>
-                        </svg>
-                    </div>
-                    <h5>Integrated Workflow Roadmap</h5>
-                    <p>The planned platform brings hospital workflows together as modules are delivered.</p>
-                    <a href="/features#platform" class="text-primary fw-bold">Learn More →</a>
-                </div>
+@page "/"
+<PageTitle>CompileCare | Connected Hospital Operations</PageTitle>
+<main>
+    <section class="hero">
+        <div class="hero-grid"></div>
+        <div class="container hero-content">
+            <div class="eyebrow"><span class="eyebrow-dot"></span> A hospital platform built around connected care</div>
+            <h1>One connected view of the <span>hospital journey.</span></h1>
+            <p class="hero-lead">CompileCare is being built to bring patient access, hospital operations and care workflows together on a secure, modular foundation—designed for the realities of hospitals in India.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="/features">Explore the platform <span aria-hidden="true">→</span></a>
+                <a class="btn btn-secondary" href="/technology">Explore the technology</a>
             </div>
-
-            <div class="col-md-4">
-                <div class="feature-card p-4 shadow-sm rounded-4 h-100">
-                    <div class="icon-circle bg-success text-white mb-3">
-                        <svg width="38" height="38" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L20 6V11C20 17 16 21 12 23C8 21 4 17 4 11V6L12 2Z" />
-                            <path d="M9 12L11 14L15 10" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+            <div class="hero-note"><span class="status-dot"></span> Platform in active development · Capabilities are delivered incrementally</div>
+            <div class="hero-visual">
+                <div class="visual-top"><span class="visual-brand"><span class="brand-mark small">+</span> CompileCare workspace</span><span class="visual-label">Illustrative product direction</span></div>
+                <div class="visual-body">
+                    <aside class="visual-sidebar"><span class="side-mark active"></span><span class="side-mark"></span><span class="side-mark"></span><span class="side-mark"></span><span class="side-mark"></span></aside>
+                    <div class="visual-main">
+                        <div class="visual-heading"><div><span class="visual-kicker">HOSPITAL OPERATIONS</span><strong>Care, connected.</strong></div><span class="visual-date">Workspace concept</span></div>
+                        <div class="visual-stats"><div><span>Patient access</span><b>01</b><small>Registration & identity</small></div><div><span>Daily flow</span><b>02</b><small>Appointments & queue</small></div><div><span>Care delivery</span><b>03</b><small>OPD documentation</small></div></div>
+                        <div class="visual-flow"><div class="flow-node"><span>01</span><b>Reception</b><small>Register · Find</small></div><i>→</i><div class="flow-node"><span>02</span><b>Appointments</b><small>Schedule · Check in</small></div><i>→</i><div class="flow-node"><span>03</span><b>Clinical</b><small>Document · Sign</small></div><i>→</i><div class="flow-node"><span>04</span><b>Billing</b><small>Invoice · Receipt</small></div></div>
                     </div>
-                    <h5>Security Foundation</h5>
-                    <p>Tenant-aware identity, authorization, and audit foundations are being implemented.</p>
-                    <a href="/features#security" class="text-success fw-bold">Learn More →</a>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="feature-card p-4 shadow-sm rounded-4 h-100">
-                    <div class="icon-circle bg-info text-white mb-3">
-                        <svg width="38" height="38" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19 18H6a4 4 0 010-8 5.5 5.5 0 0110.7-1.5A4.5 4.5 0 0119 18zm-7-9l3 3h-2v4h-2v-4H9l3-3z" />
-                        </svg>
-                    </div>
-                    <h5>Cloud Ready</h5>
-                    <p>Deployment options are evaluated against each organization's requirements.</p>
-                    <a href="/features#cloud" class="text-info fw-bold">Learn More →</a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="cta-section text-center text-white py-5" style="background: linear-gradient(135deg, #00c6ff 0%, #007bff 100%);">
-    <div class="container">
-        <h2 class="fw-bold mb-3">Ready to Transform Your Hospital Management?</h2>
-        <p class="lead mb-4">Get early access to the next generation of healthcare management software.</p>
-        <a href="/demo" class="btn btn-light btn-lg px-5 me-3">Get Started</a>
-        <a href="/" class="btn btn-outline-light btn-lg px-5">📄 Download Brochure</a>
-        <p class="mt-4 text-light">Built for hospital and clinic workflows.</p>
-    </div>
-</section>
+    <section class="section section-intro">
+        <div class="container">
+            <div class="section-heading">
+                <span class="section-kicker">THE COMPILECARE APPROACH</span>
+                <h2>Hospital software should work as <span>one system.</span></h2>
+                <p>Disconnected tools create repeated work and fragmented information. CompileCare’s product vision is an integrated, permission-aware platform where each hospital capability has a clear place and a governed path to connect.</p>
+            </div>
+            <div class="principle-grid">
+                <article class="principle-card"><div class="principle-icon">◎</div><h3>Patient-centred</h3><p>Connect registration, identity, scheduling, queue and care documentation around the patient journey.</p></article>
+                <article class="principle-card"><div class="principle-icon">⌘</div><h3>Modular by design</h3><p>Deliver coherent hospital capabilities in bounded modules, without forcing premature service fragmentation.</p></article>
+                <article class="principle-card"><div class="principle-icon">⬡</div><h3>Secure foundations</h3><p>Build tenant isolation, organization scope, least-privilege access and auditable actions into the platform.</p></article>
+                <article class="principle-card"><div class="principle-icon">↗</div><h3>Ready to evolve</h3><p>Use documented APIs and integration boundaries to support future hospital systems and partners.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="container split-heading">
+            <div><span class="section-kicker light">CURRENT DELIVERY</span><h2>A strong outpatient foundation.<br/><span>A wider hospital vision.</span></h2></div>
+            <p>Core outpatient and platform foundations are implemented in the codebase. Inpatient, diagnostics, pharmacy and other capabilities remain planned or under design. Explore the full catalogue with clear delivery labels.</p>
+        </div>
+        <div class="container module-preview">
+            <a href="/features#platform" class="module-tile"><span>01</span><b>Platform & security</b><small>Tenant lifecycle · Memberships · Roles</small></a>
+            <a href="/features#patient" class="module-tile"><span>02</span><b>Patient services</b><small>Registration · MRN · Duplicate review</small></a>
+            <a href="/features#frontdesk" class="module-tile"><span>03</span><b>Appointments & front desk</b><small>Availability · Walk-ins · Queue</small></a>
+            <a href="/features#clinical" class="module-tile"><span>04</span><b>OPD & clinical</b><small>Encounters · Notes · Signatures</small></a>
+            <a href="/features#billing" class="module-tile"><span>05</span><b>Billing foundation</b><small>Catalogue · Invoices · Payments</small></a>
+            <a href="/features#future" class="module-tile"><span>06</span><b>Future hospital modules</b><small>IPD · Pharmacy · Diagnostics · More</small></a>
+        </div>
+        <div class="container section-action"><a class="text-link light-link" href="/features">View all modules and delivery status <span>→</span></a></div>
+    </section>
+
+    <section class="section">
+        <div class="container architecture-panel">
+            <div><span class="section-kicker">ENGINEERED FOR TRUST</span><h2>Built on a modern, observable foundation.</h2><p>The platform combines a .NET API, PostgreSQL persistence, a React workspace, OpenID Connect identity and an OpenTelemetry-based observability stack. The public website and authenticated hospital workspace are separate applications.</p><a class="text-link" href="/technology">See the complete technology stack <span>→</span></a></div>
+            <div class="architecture-list"><div><span class="arch-number">01</span><div><b>API-first backend</b><small>.NET 10 · ASP.NET Core · EF Core</small></div></div><div><span class="arch-number">02</span><div><b>Transactional data</b><small>PostgreSQL · tenant-aware persistence</small></div></div><div><span class="arch-number">03</span><div><b>Identity & access</b><small>OIDC · JWT validation · persisted membership</small></div></div><div><span class="arch-number">04</span><div><b>Observability</b><small>OpenTelemetry · Prometheus · Jaeger · Elastic</small></div></div></div>
+        </div>
+    </section>
+
+    <section class="closing-cta">
+        <div class="container cta-inner"><div><span class="section-kicker light">BUILDING BETTER HOSPITAL WORKFLOWS</span><h2>Explore what CompileCare is building.</h2><p>Review the product scope, implementation status and technology choices—or get in touch to discuss hospital workflow requirements.</p></div><div class="cta-actions"><a class="btn btn-white" href="/features">Explore capabilities</a><a class="btn btn-outline-white" href="/contact">Contact CompileCare</a></div></div>
+    </section>
+</main>
