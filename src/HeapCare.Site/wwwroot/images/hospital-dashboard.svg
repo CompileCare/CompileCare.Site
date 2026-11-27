@@ -19,7 +19,7 @@
 
   <!-- Dashboard Title -->
   <text x="200" y="85" fill="#ffffff" font-size="18" font-family="Segoe UI, sans-serif" font-weight="600">
-    CompileCare Hospital Dashboard
+    HeapCare Hospital Dashboard
   </text>
 
   <!-- Sidebar -->
