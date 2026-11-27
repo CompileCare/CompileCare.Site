@@ -24,3 +24,5 @@ jobs:
         run: dotnet restore src/CompileCare.site/CompileCare.site.csproj
       - name: Build
         run: dotnet build src/CompileCare.site/CompileCare.site.csproj --configuration Release --no-restore
+      - name: Build deployment container
+        run: docker build --pull -t compilecare-site:ci .
