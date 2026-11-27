@@ -1,6 +1,6 @@
 # HeapCare Site
 
-> **HeapCare migration status:** The public Site project/solution paths, assembly name, namespaces, UI styles, metadata, logo and container build have been migrated and merged to main. The GitHub repository slug and support email remain unchanged until their administrative/external identity transitions are configured.
+> **HeapCare migration status:** The public Site project/solution paths, assembly name, namespaces, UI styles, metadata, logo and container build have been migrated and merged to main. The GitHub repository slug is HeapCare.Site. The existing support email remains unchanged until its external identity transition is configured.
 
 Public-facing HeapCare product and engineering information website.
 
